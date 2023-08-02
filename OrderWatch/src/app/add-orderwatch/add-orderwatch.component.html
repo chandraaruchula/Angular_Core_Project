@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+    <div class="row">
+        <h3 class="text-center">Create OrderWatch</h3>
+        <hr/>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()" #form action="#">
+                <div class="form-group paddingBottom-10">
+                    <label class="w-40">Ordertype </label>
+                       <select class="w-60 formControl" name="ordertype" id="ordertype"  [(ngModel)]="orderwatch.ordertype" #ordertype="ngModel">
+                        <option value="">Select Ordertype</option>
+                        <option *ngFor="let list of dropdown" [value]="list.ordertype">{{list.ordertype}}</option>
+                    </select>
+                </div>
+                <div class="form-group paddingBottom-10">
+                    <label class="w-40">milestonesStatus </label>
+                      <select class="w-60 formControl" name="milestonestatus" id="milestonestatus"  [(ngModel)]="orderwatch.milestonesStatus" #milestonestatus="ngModel">
+                        <option value="">Select milestonesstatus</option>
+                        <option *ngFor="let list of dropdown" [value]="list.milestonestatus">{{list.milestonestatus}}</option>
+                    </select>
+                </div>
+                <div class="form-group paddingBottom-10">
+                    <label class="w-40">Origin</label>
+                       <select class="w-60 formControl" name="origin" id="origin"  [(ngModel)]="orderwatch.origin" #origin="ngModel">
+                        <option value="">Select Origin</option>
+                        <option *ngFor="let list of dropdown" [value]="list.country">{{list.country}}</option>
+                    </select>
+                   
+                </div>
+                <div class="form-group paddingBottom-10">
+                    <label class="w-40">Destination </label>
+                       <select class="w-60 formControl" name="destination" id="destination"  [(ngModel)]="orderwatch.destination" #destination="ngModel">
+                        <option value="">Select Destination</option>
+                        <option *ngFor="let list of dropdown" [value]="list.country">{{list.country}}</option>
+                    </select>
+                </div> 
+                 <div class="form-group paddingBottom-10">
+                    <label class="w-40">TotalCharge  </label>
+                    <input type="number" class="w-60 formControl" id="totalcharge" name="totalcharge" [(ngModel)]="orderwatch.totalcharge">
+              
+                 </div>
+                 <br>
+                 <div class="form-group paddingBottom-10">
+                    <label class="w-40"> Date of Order</label>
+                    <input required class="w-40 formControl" readonly name="date" [matDatepicker]="picker" [(ngModel)]="orderwatch.dateofOrder"  #dateofOrder="ngModel">
+                    <mat-datepicker-toggle aria-required="true" [for]="picker"></mat-datepicker-toggle>
+                     <mat-datepicker #picker></mat-datepicker>
+                 </div>
+                 <br>
+                 <div class="form-group paddingBottom-10">
+                    <label class="w-40"> Urgent Delivery</label>
+                    <mat-radio-group aria-label="Select an option" name="UrgentDelivery" [(ngModel)]="orderwatch.urgentdelivery">
+                        <mat-radio-button [value]="true">true</mat-radio-button>
+                        <mat-radio-button [value]="false">false</mat-radio-button>
+                    </mat-radio-group>
+                </div>              
+                 <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
